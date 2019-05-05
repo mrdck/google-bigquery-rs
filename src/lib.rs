@@ -1,5 +1,10 @@
-extern crate protobuf;
-extern crate grpc;
-extern crate futures;
-extern crate futures_cpupool;
+extern crate reqwest;
+
+struct BigQuery;
+
+impl BigQuery {
+	new() -> Self {
+		Self{}
+	}
+}
 
