@@ -1,17 +1,35 @@
 pipeline {
-    agent any 
+    agent {
+        table 'rust'
+    }
 
     stages {
-        stage('Build Assets') {
-            agent any 
+        stage('Build') {
             steps {
-                echo 'Building Assets'
+                sh "cargo build"
             }
         }
         stage('Test') {
-            agent any
             steps {
-                echo 'Testing stuff...'
+                sh "cargo test"
+            }
+        }
+        stage('Clippy') {
+            steps {
+                sh "cargo +nightly clippy --all"
+            }
+        }
+        stage('Rustfmt') {
+            steps {
+                sh "cargo +nightly fmt --all -- --write-mode diff"
+            }
+        }
+        stage('Doc') {
+            steps {
+                sh "cargo doc"
+                step([$class: 'JavadocArchiver',
+                      javadocDir: 'target/doc',
+                      keepAll: false])
             }
         }
     }
