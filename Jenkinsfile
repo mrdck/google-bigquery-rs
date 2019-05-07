@@ -1,27 +1,25 @@
-pipeline {
-	agent {
-		table 'rust'
-	}
+node('node') {
 
-	stages {
-		stage('Build') {
-			steps {
-				sh "cargo build"
-			}
-		}
-	}
 
-	stages {
-		stage('Test') {
-			steps {
-				sh "cargo build"
-			}
-		}
-	}
+    currentBuild.result = "SUCCESS"
 
-	stage('Clippy') {
-            steps {
-                sh "cargo +nightly clippy --all"
-            }
+    try {
+
+       stage('Checkout'){
+
+          checkout scm
+       }
+
+       stage('Test'){
+         print "Environment will be : ${env.RUST_ENV}"
+
+         sh 'cargo build'
+       }
     }
+    catch (err) {
+
+        currentBuild.result = "FAILURE"
+        throw err
+    }
+
 }
