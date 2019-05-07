@@ -5,14 +5,14 @@ node('node') {
 
     try {
 
-       stage('Checkout'){
+       stage('Checkout 123'){
 
           checkout scm
        }
 
-       stage('Test'){
-         print "Environment will be : ${env.RUST_ENV}"
-
+       stage('Test 456'){
+         print "Environment will be : TESTING"
+        
          sh 'cargo build'
        }
     }
