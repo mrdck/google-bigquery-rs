@@ -1,25 +1,16 @@
-node('node') {
-
-
-    currentBuild.result = "SUCCESS"
-
-    try {
-
-       stage('Checkout 123'){
-
-          checkout scm
-       }
-
-       stage('Test 456'){
-         print "Environment will be : TESTING"
-        
-         sh 'cargo build'
-       }
+pipeline {
+    agent any
+    environment { 
+        CC = 'clang'
     }
-    catch (err) {
-
-        currentBuild.result = "FAILURE"
-        throw err
+    stages {
+        stage('Example') {
+            environment { 
+                DEBUG_FLAGS = '-g'
+            }
+            steps {
+                sh 'printenv'
+            }
+        }
     }
-
 }
