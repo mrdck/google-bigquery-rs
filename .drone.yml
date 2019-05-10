@@ -1,0 +1,8 @@
+kind: pipeline
+name: default
+
+steps:
+  - name: google-bigquery-rs
+    image: rust
+    commands:
+      - cargo build
