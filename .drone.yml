@@ -2,22 +2,13 @@ kind: pipeline
 name: default
 
 steps:
-  - name: Build
-    image: rust
-    commands:
-      - cargo build
-
   - name: Test
     image: rust
     commands:
+      - cargo build
       - cargo test
 
   - name: Clippy
     image: rust
     commands:
-      - cargo +nightly clippy --all
-
-  - name: Rustfmt
-    image: rust
-    commands:
-      - nightly fmt --all -- --write-mode diff
+      - cargo clippy --all
