@@ -1,1 +1,1 @@
-[![Build Status](http://jenkins.mrdck.com:81/api/badges/mrdck/google-bigquery-rs/status.svg)](http://jenkins.mrdck.com:81/mrdck/google-bigquery-rs)
+[![Build Status](http://ci.mrdck.com/api/badges/mrdck/google-bigquery-rs/status.svg)](http://ci.mrdck.com/mrdck/google-bigquery-rs)
