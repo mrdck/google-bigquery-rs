@@ -5,9 +5,9 @@ steps:
   - name: Build
     image: rust
     commands:
-      - cargo +stable build
+      - cargo build
 
   - name: Test
     image: rust
     commands:
-      - cargo +stable test
+      - cargo test
