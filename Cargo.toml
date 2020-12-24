@@ -5,7 +5,7 @@ authors = ["Mateusz Perlak <mateuszperlak@mrdck.com>"]
 edition = "2018"
 
 [dependencies]
-hyper = "^0.10"
+hyper = "^0.14"
 hyper-native-tls = "0.3.0"
 yup-oauth2 = "4.1.3"
 
