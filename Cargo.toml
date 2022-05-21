@@ -1,7 +1,7 @@
 [package]
 name = "google-bigquery-rs"
 version = "0.1.0"
-authors = ["Mateusz Perlak <mateuszperlak@mrdck.com>"]
+authors = ["mrdck"]
 edition = "2018"
 
 [dependencies]
